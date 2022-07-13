@@ -1,2 +1,8 @@
-# ExampleModule
-This is an example GenePattern module written in Python 3. It has its own module-specific Docker image, based on the GenePattern Python 3 image. This module specific image contains the source files for better reproducibility and portability. It can be used as a template for future modules.
+# PyCoGAPS
+
+Coordinated Gene Activity in Pattern Sets (CoGAPS) implements a Bayesian MCMC matrix factorization algorithm, GAPS, and links it to gene set statistic methods to infer biological process activity. It can be used to perform sparse matrix factorization on any data, and when this data represents biomolecules, to do gene set analysis.
+
+For details, please see https://github.com/FertigLab/pycogaps
+
+
+
