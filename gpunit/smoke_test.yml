@@ -7,13 +7,10 @@
 # Note: this test uses a custom diff command
 #
 
-name: "ExampleModule - Basic test"
-module: ExampleModule
+name: "PyCoGAPS - Basic test"
+module: PyCoGAPS
 params:
-    filename: "../data/data_placeholder.txt"
-    add_custom_message: "True"
-    message_to_add: "This message has been added."
-    output_filename: "gp_unit_test_file"
+    filename: "data/GIST.csv"
 assertions:
         diffCmd: diff <%gpunit.diffStripTrailingCR%> -q
         files:
