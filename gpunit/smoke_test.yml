@@ -10,9 +10,19 @@
 name: "PyCoGAPS - Basic test"
 module: PyCoGAPS
 params:
-    filename: "data/GIST.csv"
+    input.file: "data/GIST.csv"
+    output.filename: "GIST.pkl"
+    num.patterns: 3
+    num.iterations: 1000
+    seed: 0
+    use.sparse.optimization: "False"
+    transpose.data: "False"
+    num.threads: 1
+    messages: "False"
+    output.frequency: 500
+    n.snapshots: 0
 assertions:
-        diffCmd: diff <%gpunit.diffStripTrailingCR%> -q
         files:
-            "gp_unit_test_file.txt":
-                diff: "output/basic_test/created_file_ground_truth.txt"
+            "GIST.pkl":
+
+
