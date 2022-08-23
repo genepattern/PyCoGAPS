@@ -1,0 +1,76 @@
+[
+    {
+        "name": "Standard parameters",
+        "description": "",
+        "hidden": false,
+        "parameters": [
+            "input.file",
+            "output.filename",
+            "num.patterns",
+            "num.iterations",
+            "seed",
+            "use.sparse.optimization",
+            "transpose.data"
+        ]
+    },
+    {
+        "name": "Run parameters",
+        "description": "",
+        "hidden": true,
+        "parameters": [
+            "num.threads",
+            "messages",
+            "output.frequency",
+            "uncertainty",
+            "checkpoint.out.filename",
+            "checkpoint.in.file",
+            "worker.ID",
+            "asynchronous.updates",
+            "n.snapshots",
+            "snapshot.phase"
+        ]
+    },
+    {
+        "name": "Sparsity parameters",
+        "description": "",
+        "hidden": true,
+        "parameters": [
+            "alpha.A",
+            "alpha.P",
+            "max.Gibbs.Mass.A",
+            "max.Gibbs.Mass.P"
+        ]
+    },
+    {
+        "name": "Distributed Parameters",
+        "description": ".",
+        "hidden": true,
+        "parameters": [
+            "distributed",
+            "num.sets",
+            "cut",
+            "min.NS",
+            "max.NS",
+            "explicit.sets",
+            "sampling.annotation",
+            "sampling.weight"
+        ]
+    },
+    {
+        "name": "Additional Parameters",
+        "description": ".",
+        "hidden": true,
+        "parameters": [
+            "subset.indices",
+            "subset.dimension",
+            "gene.names",
+            "sample.names",
+            "fixed.patterns",
+            "which.matrix.fixed",
+            "take.pump.samples",
+            "hdf.key",
+            "hdf.row.key",
+            "hdf.col.key"
+        ]
+    }
+]
