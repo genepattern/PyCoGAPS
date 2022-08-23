@@ -1,36 +1,66 @@
-<!-- remove all comments before releasing -->
-<!-- This is the name of the module as it will appear in GenePatter, and its version, for clarity -->
-# ExampleModule (v2)
+# PyCoGAPS (v1)
 
-<!-- A brief text description of the module, usually one sentence in length. -->
-**Description**: This is an example GenePattern module written in Python 3. It can be used as a template for future modules. It reads a file and potentially adds a line of text
+**Description**: 
+See [https://github.com/FertigLab/pycogaps](https://github.com/FertigLab/pycogaps) for more details of PyCoGAPS.
 
-<!-- This field is for the author or creator of the module. If the algorithm of the module is from a published paper, this is usually the first or corresponding author from the paper. If the module algorithm is unpublished, this is usually the developer of the module itself. This field can simply be a name of a person or group. -->
-**Authors**: Edwin F. Juarez; UCSD - Mesirov Lab, UCSD; Barbara Hill - Mesirov Lab, Broad Institute
+Coordinated Gene Activity in Pattern Sets (CoGAPS) implements a Bayesian MCMC matrix factorization algorithm, GAPS, and links it to gene set statistic methods to infer biological process activity. It can be used to perform sparse matrix factorization on any data, and when this data represents biomolecules, to do gene set analysis.
 
-<!--This field is used for responding to help requests for the module, and should be an email address or a link to a website with contact information or a help forum. -->
+Gene Association in Pattern Sets (GAPS) infers underlying patterns in a matrix of measurements that can
+be interpreted as arising from the multiplication of two lower dimensional matrices. The first development of
+this code in R/Biocondcutor was focused on gene expression analysis, however the original concept was used
+in spectral imaging. The approach is a general form of matrix factorization using a stochastic algorithm.
+ While in this doc we will focus on gene expression analysis for concreteness, but the factorization is applicable more broadly.
+
+The Markov chain Monte Carlo (MCMC) matrix factorization that infers patterns also infers the extent
+to which individual genes belong to these patterns. The CoGAPS algorithm extends GAPS to infer the
+coordinated activity in sets of genes for each of the inferred patterns based upon and to refine gene set
+membership based upon.
+
+
+**Authors**: Fertig Lab, Johns Hopkins University; wrapped as a genePattern module by Ted Liefeld - Mesirov Lab, UCSD
+
 **Contact**: [Forum Link](https://groups.google.com/forum/?utm_medium=email&utm_source=footer#!forum/genepattern-help)
 
-<!-- All modules have a version number associated with them (the last number on the LSID) that is used to differentiate between modules of the same name for reproducibility purposes. However, for publicly released software packages that are wrapped as GenePattern modules, sometimes this version number will be different that the version number of the algorithm itself (e.g. TopHat v7 in GenePattern uses version 2.0.8b of the TopHat algorithm). Since this information is often important to the user, the algorithm version field is an optional attribute that can be used to specify this different version number. Remove this field if not applicable -->
-**Algorithm Version**: _OPTIONAL_ and Not applicable for this particular module
 
-<!-- Why use this module? What does it do? If this is one of a set of modules, how does this module fit in the set? How does it work? write overview as if you are explaining to a novice. Include any links or images which would serve to clarify -->
 ## Summary
 
-This is an example GenePattern module written in [Python 3](https://www.python.org/download/releases/3.0/).
-It can be used as a template for future modules. It reads a file and potentially adds a line of text.
+GAPS seeks a pattern matrix (P) and the corresponding distribution matrix of weights (A) whose product forms a mock data matrix (M) that represents the expression data D within noise limits (ε). That is,
 
-<!-- appropriate papers should be cited here -->
+D = M + ε = AP + ε.
+
+The number of rows in P (columns in A) defines the number of biological patterns that GAPS will infer from the measured microarray data or equivalently the number of nonorthogonal basis vectors required to span the data space. As in the Bayesian Decomposition algorithm, the matrices A and P in GAPS are assumed to have the atomic prior. In the GAPS implementation, αA and αP are corresponding parameters for the expected number of atoms which map to each matrix element in A and P, respectively. The corresponding matrices A and P are found by MCMC sampling.
+
+ 
+
+CoGAPS infers coordinated activity in gene sets active in each row of the pattern matrix P found by GAPS in a single step, by running both GAPS and then performing the statistical analysis of calcCoGAPSStat. Specifically, CoGAPS computes a Z-score based statistic on each column of the A matrix. The resulting Z-score for pattern p and gene set i, Gi , with G elements is given by Zi,p = 1 / G SUM g∈Gi (Agp/ Asdgp ) where g indexes the genes in the set and Asdgp is the standard deviation of Agp obtained from the MCMC sampling in GAPS. CoGAPS then uses random sample tests to convert the Z-scores from eq. (3.2) to p values for each gene set.
+
 ## References
 
-<!-- links to your source repository **specific to the release version**, the Docker image used by the module (as specified in your manifest), and (if applicable) the sha link to the Dockerfile used to build your Docker image -->
+If you use the CoGAPS package for your analysis please cite:  EJ Fertig, J Ding, AV Favorov, G
+Parmigiani, and MF Ochs (2010) CoGAPS: an R/C++ package to identify patterns and biological process
+activity in transcriptomic data. Bioinformatics 26: 2792-2793.
+
+To cite the CoGAPS algorithm use:  MF Ochs (2003) Bayesian Decomposition in The Analysis of
+Gene Expression Data: Methods and Software G Parmigiani, E Garrett, R Irizarry, and S Zeger, ed. New
+York: Springer Verlag.
+
+
+To cite the gene set statistic use:  MF Ochs, L Rink, C Tarn, S Mburu, T Taguchi, B Eisenberg, and
+AK Godwin (2009) Detection of treatment-induced changes in signaling pathways in gastrointestinal stromal
+tumors using transcriptomic data. Cancer Research 69: 9125-9132.
+
+
+To site the set-membership refinement statistic use:  EJ Fertig, AV Favorov, and MF Ochs (2012)
+Identifying context-specific transcription factor targets from prior knowledge and gene expression data. 2012
+IEEE International Conference on Bioinformatics and Biomedicine, B310, in press.
+Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.edu for assistance.
+
+
 ## Source Links
-* [The GenePattern ExampleModule v2 source repository](https://github.com/genepattern/ExampleModule/tree/v2)
-* ExampleModule v2 uses the [genepattern/example-module:2 Docker image](https://hub.docker.com/layers/150060459/genepattern/example-module/2/images/sha256-ae4fffff67672e46b251f954ad226b7ad99403c456c1c19911b6ac82f1a27f2f?context=explore)
-* [The Dockerfile used to build that image is here.](https://github.com/genepattern/ExampleModule/blob/v2/Dockerfile)
+* [The Fertig Lab PyCoGAPS source repository](https://github.com/FertigLab/pycogaps)
+* [Genepattern PyCoGAPS Module source repository](https://github.com/genepattern/PyCoGAPS/)
 
 ## Parameters
-<!-- short description of the module parameters and their default values, as well as whether they are required -->
 
 | Name | Description <!--short description--> | Default Value |
 ---------|--------------|----------------
@@ -65,19 +95,12 @@ Output:
 [created_file_ground_truth.txt](https://github.com/genepattern/ExampleModule/blob/v2/gpunit/output/basic_test/created_file_ground_truth.txt)
 
 
-## Requirements
-<!--This section is typically used to list any special requirements for running the module, such as, language/operating system requirements and Docker images. -->
-
-Requires the [genepattern/example-module:2 Docker image](https://hub.docker.com/layers/150060459/genepattern/example-module/2/images/sha256-ae4fffff67672e46b251f954ad226b7ad99403c456c1c19911b6ac82f1a27f2f?context=explore).
-
 ## License
 
-`ExampleModule` is distributed under a modified BSD license available at [https://github.com/genepattern/ExampleModule/blob/v2/LICENSE.](https://github.com/genepattern/ExampleModule/blob/v2/LICENSE)
+`PyCoGAPS` is distributed under a modified BSD license available at [https://github.com/genepattern/PyCoGAPS/blob/v2/LICENSE.](https://github.com/genepattern/PyCoGAPS/blob/v2/LICENSE)
 
 ## Version Comments
-<!--For each version of a module, provide a short comment about what was changed in the new version of a module. Version comments consist of 3 parts: a date, a version number, and a short description. The date should be the release date of that version of the module, and the version number should match the version of the module for which it corresponds to. The description can be short, but should be informative (e.g. "added support for log transformed data", or "fixed bug with out of memory exception"). When a user views the documentation, all version comments up to and including the current version will be displayed, and act as a short version history for the module. -->
 
 | Version | Release Date | Description                                 |
 ----------|--------------|---------------------------------------------|
-|  1.4  | May 17, 2021 | Added all GenePattern Team module release requirements and renamed as ExampleModule, from ABasicModule. |
-| 1 | May 1, 2018 | Initial version for team use. |
+| 1 | August 21, 2022 | Initial version. |
