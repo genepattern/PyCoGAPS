@@ -65,8 +65,8 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 ### Standard Parameters
 | Name | Description  | Default Value |
 |---------|--------------|----------------|
-| input file * | 	Input data file in csv or gct format. |
-| output filename * | The result output file name (output is saved as a .pkl file).  |
+| input file * | 	Input data file in csv or gct format. |  |
+| output filename * | The result output file name (output is saved as a .pkl file).  |  |
 | num patterns * | The number of patterns PyCoGAPS will learn. | 3 |
 | num iterations * | The number of iterations for each phase of the algorithm. | 1000 |
 | seed * | Random number generator seed. | 0 |
