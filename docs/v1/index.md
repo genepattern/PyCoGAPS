@@ -74,6 +74,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 | transpose data * | 	Transpose the dataset before processing. | False |
 
 ### Run Parameters
+
 | Name | Description  | Default Value |
 |---------|--------------|----------------|
 | num threads * | 		The maximum number of threads to run on. |  1 |
@@ -89,6 +90,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 
 
 ### Sparsity Parameters
+
 | Name | Description  | Default Value |
 |---------|--------------|----------------|
 | alpha A * | 		The sparsity parameter for the feature matrix. |  .01 |
@@ -97,6 +99,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 | max Gibbs Mass P * | 	The atomic mass restriction for the sample matrix. | 100 |
 
 ### Distributed Parameters
+
 | Name | Description  | Default Value |
 |---------|--------------|----------------|
 | distributed | 		Either null (None) or genome-wide. | None  |
@@ -107,7 +110,9 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 | sampling annotation | 		Specify categories along the rows (cols) to use for weighted sampling. |   |
 | sampling weight | 		The weights associated with sampling annotation. |   |
 
+ 
 ### Additional Parameters
+ 
 | Name | Description  | Default Value |
 |---------|--------------|----------------|
 | subset indices * | 		The set of indices to use from the data. |   |
