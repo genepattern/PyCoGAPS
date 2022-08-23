@@ -1,13 +1,13 @@
-#PyCoGAPS
-#Tue Aug 23 16:00:23 UTC 2022
+# PyCoGAPS  urn:lsid:broad.mit.edu:cancer.software.genepattern.module.analysis:00417:999999999.5
+#Tue Aug 23 20:44:43 UTC 2022
 JVMLevel=
-LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00417\:999999999.3
+LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00417\:999999999.5
 author=Ashley Tsang, Johns-Hopkins - Fertig Lab, Ted Liefeld ;UCSD - Mesirov Lab
 categories=beta
 commandLine=python3 /home/user/pycogaps-gpn/run_pycogaps.py  <input.file> <output.filename> <num.patterns> <num.iterations> <seed> <use.sparse.optimization> <num.threads> <messages> <output.frequency> <uncertainty> <checkpoint.out.filename> <checkpoint.in.file>  <worker.ID> <asynchronous.updates> <n.snapshots> <snapshot.phase> <alpha.A> <alpha.P> <max.Gibbs.Mass.A> <max.Gibbs.Mass.P> <distributed> <num.sets> <cut> <min.NS> <max.NS> <explicit.sets> <sampling.annotation> <sampling.weight> <subset.indices> <subset.dimension> <gene.names> <sample.names> <fixed.patterns> <which.matrix.fixed> <take.pump.samples> <hdf.key> <hdf.row.key> <hdf.col.key>  <transpose.data>
 cpuType=any
 description=Coordinated Gene Activity in Pattern Sets (CoGAPS) implements a Bayesian MCMC matrix factorization algorithm, GAPS, and links it to gene set statistic methods to infer biological process activity. It can be used to perform sparse matrix factorization on any data, and when this data represents biomolecules, to do gene set analysis. This package, PyCoGAPS, presents a unified Python interface, with a parallel, efficient underlying implementation.
-documentationUrl=https\://github.com/FertigLab/pycogaps\#readme
+documentationUrl=https\://genepattern.github.io/PyCoGAPS/v1/index
 fileFormat=pkl
 job.cpuCount=
 job.docker.image=fertiglab/pycogaps-gpn\:0.1
@@ -357,7 +357,7 @@ p33_value=
 p34_MODE=IN
 p34_TYPE=FILE
 p34_default_value=
-p34_description=ix either 'A' or 'P' matrix to these values, in the context of distributed CoGAPS, the first phase is skipped and fixedPatterns\: \nis used for all sets allowing manual pattern matching, as well as fixed runs of standard CoGAPS
+p34_description=The provided fixedPatterns matrix (either ?A? or ?P? matrix) allows for manual pattern matching. In distributed CoGAPS (distributed\=?genome-wide?), the first phase is skipped and fixedPatterns is used for all sets. In standard CoGAPS, fixedPatterns allows for fixed runs.is used for all sets allowing manual pattern matching, as well as fixed runs of standard CoGAPS
 p34_fileFormat=.csv;csv;csv, txt
 p34_flag=--fixedPatterns 
 p34_name=fixed.patterns
@@ -526,7 +526,7 @@ p9_value=True\=True;False\=False
 privacy=public
 publicationDate=07/13/2022 08\:54 
 quality=development
-src.repo=https\://github.com/genepattern/ExampleModule/tree/v3
+src.repo=https\://github.com/genepattern/PyCoGAPS
 taskDoc=
 taskType=beta
 userid=ted
