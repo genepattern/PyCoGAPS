@@ -87,7 +87,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 | worker ID * | 		If calling CoGAPS in parallel the worker ID can be specified. |
 | asynchronous updates * | Enable asynchronous updating which allows for multi-threaded runs. | False |
 | n snapshots * | 	Sets how many snapshots to take in each phase, setting this to 0 disables snapshots. | 0 |
-| snapshot phase * | 		During which phase to take snapsjots in e.g. "equilibration", "sampling", "all". | sampling |
+| snapshot phase * | 		During which phase to take snapshots in e.g. "equilibration", "sampling", "all". | sampling |
 
 
 ### Sparsity Parameters
@@ -107,6 +107,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 | num sets * | 		The number of sets to break data into. | 4 |
 | cut * | 	The number of branches at which to cut dendrogram used in pattern matching.  | <num patterns> |
 | min NS * | 	The minimum of individual set contributions a cluster must contain. | math.ceil(cut / 2) |
+| max NS * | 	The maximum of individual set contributions a cluster must contain. | minNS + nSets |
 | explicit sets | 		Whether to specify subsets by index or name. | None  |
 | sampling annotation | 		Specify categories along the rows (cols) to use for weighted sampling. |   |
 | sampling weight | 		The weights associated with sampling annotation. |   |
