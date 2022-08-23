@@ -64,7 +64,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 
 ### Standard Parameters
 | Name | Description  | Default Value |
----------|--------------|----------------
+|---------|--------------|----------------|
 | input file * | 	Input data file in csv or gct format. |
 | output filename * | The result output file name (output is saved as a .pkl file).  |
 | num patterns * | The number of patterns PyCoGAPS will learn. | 3 |
@@ -75,7 +75,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 
 ### Run Parameters
 | Name | Description  | Default Value |
----------|--------------|----------------
+|---------|--------------|----------------|
 | num threads * | 		The maximum number of threads to run on. |  1 |
 | messages * | 		When True, display additional outputs to stdout.txt. | False |
 | output frequency * | 		The number of iterations between each output (set to 0 to disable status updates). | 500 |
@@ -90,7 +90,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 
 ### Sparsity Parameters
 | Name | Description  | Default Value |
----------|--------------|----------------
+|---------|--------------|----------------|
 | alpha A * | 		The sparsity parameter for the feature matrix. |  .01 |
 | alpha P * | 		The sparsity parameter for the sample matrix. | .01 |
 | max Gibbs Mass A * | 	The atomic mass restriction for the feature matrix. | 100 |
@@ -98,7 +98,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 
 ### Distributed Parameters
 | Name | Description  | Default Value |
----------|--------------|----------------
+|---------|--------------|----------------|
 | distributed | 		Either null (None) or genome-wide. | None  |
 | num sets * | 		The number of sets to break data into. | 4 |
 | cut * | 	The number of branches at which to cut dendrogram used in pattern matching.  | <num patterns> |
@@ -109,7 +109,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 
 ### Additional Parameters
 | Name | Description  | Default Value |
----------|--------------|----------------
+|---------|--------------|----------------|
 | subset indices * | 		The set of indices to use from the data. |   |
 | subset dimension * | 		Which dimension (rows, columns) to subset. |  |
 | gene names * | 	The vector of names of genes in the data. |  |
@@ -169,7 +169,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 ## Example Data
 <!-- provide links to example data so that users can see what input & output should look like and so that they and we can use it to test -->
 
-Input:  
+Input file:  
 [GIST.csv](https://github.com/FertigLab/pycogaps/blob/master/data/GIST.csv)
 
 
