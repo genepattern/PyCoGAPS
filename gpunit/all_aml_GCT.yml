@@ -10,8 +10,8 @@
 name: "PyCoGAPS - Basic test"
 module: PyCoGAPS
 params:
-    input.file: "data/GIST.csv"
-    output.filename: "GIST.pkl"
+    input.file: "data/all_aml_test.preprocessed.gct"
+    output.filename: "<input.file_basename>.pkl"
     num.patterns: 3
     num.iterations: 1000
     seed: 0
@@ -23,6 +23,6 @@ params:
     n.snapshots: 0
 assertions:
         files:
-            GIST.pkl: !!null
+            all_aml_test.preprocessed.pkl: !!null
 
 
