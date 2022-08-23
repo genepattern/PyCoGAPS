@@ -62,12 +62,52 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 
 ## Parameters
 
-| Name | Description <!--short description--> | Default Value |
+### Standard Parameters
+| Name | Description  | Default Value |
 ---------|--------------|----------------
-| filename * |  The file to be read in txt format |
-| add_custom_message * | Whether or not to add a custom message. | False |
-| message_to_add  | What message to add (if any) |
-| output_filename * | The basename to use for output file (no need to add ".txt" at the end) |
+| input file * | 	Input data file in csv or gct format. |
+| output filename * | The result output file name (output is saved as a .pkl file).  |
+| num patterns * | The number of patterns PyCoGAPS will learn. | 3 |
+| num iterations * | The number of iterations for each phase of the algorithm. | 1000 |
+| seed * | Random number generator seed. | 0 |
+| use sparse optimization * | When true, speeds up performance with sparse data (roughly >80% of data is zero), note this can only be used with the default uncertainty. | False |
+| transpose data * | 	Transpose the dataset before processing. | False |
+
+### Run Parameters
+| Name | Description  | Default Value |
+---------|--------------|----------------
+| num threads * | 		The maximum number of threads to run on. |  1 |
+| messages * | 		When True, display additional outputs to stdout.txt. | False |
+| output frequency * | 		The number of iterations between each output (set to 0 to disable status updates). | 500 |
+| uncertainty * | 	The uncertainty matrix - in csv format. |
+| checkpoint out filename * | 	The name of the checkpoint file to create. |
+| checkpoint in file | 		If this is provided, CoGAPS runs from the checkpoint contained in this file. |
+| worker ID * | 		If calling CoGAPS in parallel the worker ID can be specified. |
+| asynchronous updates * | Enable asynchronous updating which allows for multi-threaded runs. | False |
+| n snapshots * | 	Sets how many snapshots to take in each phase, setting this to 0 disables snapshots. | 0 |
+| snapshot phase * | 		During which phase to take snapsjots in e.g. "equilibration", "sampling", "all". | sampling |
+
+
+### Sparsity Parameters
+| Name | Description  | Default Value |
+---------|--------------|----------------
+| alpha A * | 		The sparsity parameter for the feature matrix. |  .01 |
+| alpha P * | 		The sparsity parameter for the sample matrix. | .01 |
+| max Gibbs Mass A * | 	The atomic mass restriction for the feature matrix. | 100 |
+| max Gibbs Mass P * | 	The atomic mass restriction for the sample matrix. | 100 |
+
+### Distributed Parameters
+| Name | Description  | Default Value |
+---------|--------------|----------------
+| distributed | 		Either null (None) or genome-wide. | None  |
+| num sets * | 		The number of sets to break data into. | 4 |
+| cut * | 	The number of branches at which to cut dendrogram used in pattern matching.  | <num patterns> |
+| min NS * | 	The minimum of individual set contributions a cluster must contain. | math.ceil(cut / 2) |
+| explicit sets | 		Whether to specify subsets by index or name. | None  |
+| sampling annotation | 		Specify categories along the rows (cols) to use for weighted sampling. |   |
+| sampling weight | 		The weights associated with sampling annotation. |   |
+
+
 
 \*  required
 
