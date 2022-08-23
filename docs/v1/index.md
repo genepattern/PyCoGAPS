@@ -107,21 +107,62 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 | sampling annotation | 		Specify categories along the rows (cols) to use for weighted sampling. |   |
 | sampling weight | 		The weights associated with sampling annotation. |   |
 
-
-
+### Additional Parameters
+| Name | Description  | Default Value |
+---------|--------------|----------------
+| subset indices * | 		The set of indices to use from the data. |   |
+| subset dimension * | 		Which dimension (rows, columns) to subset. |  |
+| gene names * | 	The vector of names of genes in the data. |  |
+| sample names * | 		The vector of names of samples in the data. |  |
+| fixed patterns * | 		The provided fixedPatterns matrix (either ‘A’ or ‘P’ matrix) allows for manual pattern matching. In distributed CoGAPS (distributed=’genome-wide’), the first phase is skipped and fixedPatterns is used for all sets. In standard CoGAPS, fixedPatterns allows for fixed runs. |   |
+| which matrix fixed * | 			Either 'A' or 'P', indicating which matrix is fixed. |  A |
+| take pump samples * | 		Whether or not to take PUMP samples. |    |
+| hdf key * | 		Hdf key for reading .h5 files. |    |
+| hdf row key * | 		Hdf row key for reading .h5 files. |   |
+| hdf col key * | 			Hdf column key for reading .h5 files. |    |
+ 
 \*  required
 
 ## Input Files
-<!-- longer descriptions of the module input files. Include information about format and/or preprocessing...etc -->
 
-1. filename  
-    A long form explanation of the parameter. For example: This is the file which will be read in by the python script and to which text will be added, if add_custom_message is set to true. The parameter expects a text file with a .txt extension (e.g. file.txt)
+1. input file  
+    A file containing the matrix to test. Formatted as gct or csv.
     
+2. uncertainty 
+    A file containing an uncertainty matrix. Formatted as csv.
+
+3. checkpoint in file  
+    A file a previously generated checkpoint to start from. Formatted as a pkl file.
+
+4. explicit sets  
+    Whether to specify subsets by index or name.  csv format that will convert to a python list.
+
+5. sampling annotation 
+    Specify categories along the rows (cols) to use for weighted sampling. csv format that will convert to a python list.
+ 
+6. sampling weight  
+   The weights associated with sampling annotation.. txt format that will converted to a python dictionary.
+ 
+7. subset indices   
+   	The set of indices to use from the data.  csv format that will convert to a python list.
+
+8. gene names  
+    	The vector of names of genes in the data. csv format that will convert to a python list.
+
+9. sample names  
+    The vector of names of samples in the data. csv format that will convert to a python list.
+
+10. fixed patterns
+  
+   	The provided fixedPatterns matrix (either ‘A’ or ‘P’ matrix). Formatted as csv.
+
+
+ 
 ## Output Files
 <!-- list and describe any files output by the module -->
 
-1. \<output_filename\>.txt  
-    The input file plus any text you added, if you chose to add text.
+1. \<output_filename\>.pkl  
+    Pickle (.pkl) formatted dictionary of the result as two representations is stored: an anndata object. CoGAPS stores the lower dimensional representation of the samples (P matrix) in the .var slot and the weight of the features (A matrix) in the .obs slot. The standard deviation across sample points for each matrix are stored in the .uns slots.
 2. stdout.txt
     This is standard output from the Python script. Sometimes helpful for debugging.
 
@@ -129,10 +170,7 @@ Please contact Elana J. Fertig ejfertig@jhmi.edu or Michael F. Ochs ochsm@tcnj.e
 <!-- provide links to example data so that users can see what input & output should look like and so that they and we can use it to test -->
 
 Input:  
-[data_placeholder.txt](https://github.com/genepattern/ExampleModule/blob/v2/data/data_placeholder.txt)
-
-Output:  
-[created_file_ground_truth.txt](https://github.com/genepattern/ExampleModule/blob/v2/gpunit/output/basic_test/created_file_ground_truth.txt)
+[GIST.csv](https://github.com/FertigLab/pycogaps/blob/master/data/GIST.csv)
 
 
 ## License
