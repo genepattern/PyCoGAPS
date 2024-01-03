@@ -3,7 +3,7 @@
 JVMLevel=
 LSID=urn\:lsid\:broad.mit.edu\:cancer.software.genepattern.module.analysis\:00417\:0.2.1
 author=Ashley Tsang, Johns-Hopkins - Fertig Lab, Ted Liefeld ;UCSD - Mesirov Lab
-categories=beta
+categories=dimension reduction
 commandLine=python3 /home/user/pycogaps-gpn/run_pycogaps.py  <input.file> <output.filename> <num.patterns> <num.iterations> <seed> <use.sparse.optimization> <num.threads> <messages> <output.frequency> <uncertainty> <checkpoint.out.filename> <checkpoint.in.file>  <worker.ID> <asynchronous.updates> <n.snapshots> <snapshot.phase> <alpha.A> <alpha.P> <max.Gibbs.Mass.A> <max.Gibbs.Mass.P> <distributed> <num.sets> <cut> <min.NS> <max.NS> <explicit.sets> <sampling.annotation> <sampling.weight> <subset.indices> <subset.dimension> <gene.names> <sample.names> <fixed.patterns> <which.matrix.fixed> <take.pump.samples> <hdf.key> <hdf.row.key> <hdf.col.key>  <transpose.data>
 cpuType=any
 description=Coordinated Gene Activity in Pattern Sets (CoGAPS) implements a Bayesian MCMC matrix factorization algorithm, GAPS, and links it to gene set statistic methods to infer biological process activity. It can be used to perform sparse matrix factorization on any data, and when this data represents biomolecules, to do gene set analysis. This package, PyCoGAPS, presents a unified Python interface, with a parallel, efficient underlying implementation.
